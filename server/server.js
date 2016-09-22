@@ -12,11 +12,13 @@ module.exports = {
 
     start: function(){
 
-        app.get('/', function(req, res){
+        app.use('/', express.static('public'));
 
-            res.send('Hello World');
-
-        });
+        // app.get('/', function(req, res){
+        //
+        //     res.send('Hello World');
+        //
+        // });
 
         app.listen(PORT, function(){
 
