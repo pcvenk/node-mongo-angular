@@ -2,8 +2,13 @@ angular.module('app', ['ui.bootstrap','ui.router','ngAnimate']);
 
 angular.module('app').config(function($stateProvider, $urlRouterProvider) {
 
+    $stateProvider.state('users', {
+        url: '/users',
+        templateUrl: 'partial/users/users.html',
+        controller: 'UsersCtrl'
+    });
     /* Add New States Above */
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/users');
 
 });
 

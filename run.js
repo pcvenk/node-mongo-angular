@@ -4,10 +4,17 @@
 
 //init file
 var server = require('./server/server');
+var db     = require('./server/database');
 
 var init = function(){
 
-    server.start();
+    db.connect(function(){
+
+        server.start();
+
+        require('./server/models/user');
+
+    });
 
 };
 
