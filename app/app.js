@@ -7,6 +7,11 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
         templateUrl: 'partial/users/users.html',
         controller: 'UsersCtrl'
     });
+    $stateProvider.state('user', {
+        url: '/user',
+        templateUrl: 'partial/user/user.html',
+        controller: 'UserCtrl'
+    });
     /* Add New States Above */
     $urlRouterProvider.otherwise('/users');
 

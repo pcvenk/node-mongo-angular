@@ -7,9 +7,9 @@ var db = require('mongoose');
 exports.connect = function(success){
 
     //db stored remote on heroku with mongolab
-    db.connect('mongodb://admin:mojegeslo@ds035776.mlab.com:35776/heroku_h1qgfjsm');
+    //db.connect('mongodb://admin:mojegeslo@ds035776.mlab.com:35776/heroku_h1qgfjsm');
     //db stored localy on localhost
-    // db.connect('mongodb://localhost/sample-db');
+    db.connect('mongodb://localhost/sample-db');
 
     db.connection.on('error', function(error){
 

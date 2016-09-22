@@ -23,4 +23,22 @@ module.exports = function(app){
 
     });
 
+    app.post('/api/user', function(req, res){
+
+        var User = mongoose.model('User');
+
+        var user = new User(req.body);
+
+        user.save(function(err, docs){
+
+            if(!err){
+                res.status(200).send(docs);
+            }else{
+                res.send(err);
+            }
+
+        });
+
+    });
+
 };

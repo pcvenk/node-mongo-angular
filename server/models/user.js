@@ -6,8 +6,13 @@ var mongoose = require('mongoose');
 
 var schema   = new mongoose.Schema({
 
-    name:     String,
-    surname:  String
+    name        :   String,
+    surname     :   String,
+    email       :   String,
+    role        :   String,
+    dateCreated :   { type:Date, default:Date.now }
+    // images      :   {type: mongoose.Schema.Types.ObjectId, ref: 'Image'}
+
 
 });
 

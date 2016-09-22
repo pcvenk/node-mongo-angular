@@ -1,0 +1,57 @@
+<h3>Add a new user</h3>
+
+<div class="row">
+    <div class="input-field grid-example col s12 m4">
+        <input id="first_name"
+               type="text"
+               class="validate"
+               ng-model="model.name"
+        >
+        <label for="first_name">First Name</label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field grid-example col s12 m4">
+        <input id="last_name"
+               type="text"
+               class="validate"
+               ng-model="model.surname"
+        >
+        <label for="last_name">Last Name</label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field grid-example col s12 m4">
+        <input id="email"
+               type="text"
+               class="validate"
+               ng-model="model.email"
+        >
+        <label for="email">Email</label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field grid-example col s12 m4">
+        <input id="role"
+               type="text"
+               class="validate"
+               ng-model="model.role"
+        >
+        <label for="role">Role</label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field grid-example col s12 m4">
+        <input id="date"
+               type="date"
+               class="datepicker"
+               ng-model="model.dateCreated"
+        >
+    </div>
+</div>
+
+<div class="btn-floating btn-large waves-effect waves-light teal" ng-click="saveUser()"><i class="material-icons">add</i></div>
