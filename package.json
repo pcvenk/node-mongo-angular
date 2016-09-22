@@ -1,0 +1,21 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "Demo app for Kalmia",
+  "main": "run.js",
+  "engines":{
+      "node": "6.2.x",
+      "npm": "3.10.x"
+  },
+  "scripts": {
+    "start": "node run"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": "PC",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
