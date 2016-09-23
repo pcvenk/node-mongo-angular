@@ -1,11 +1,22 @@
-angular.module('app', ['ui.bootstrap','ui.router','ngAnimate']);
+angular.module('app',
+    ['ui.bootstrap',
+    'ui.router',
+    'ngAnimate',
+    'angularUtils.directives.dirPagination'
+    ]);
 
 angular.module('app').config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state('users', {
         url: '/users',
         templateUrl: 'partial/users/users.html',
-        controller: 'UsersCtrl'
+        controller: 'UsersCtrl',
+        resolve:{
+            list:function(userService){
+
+                return userService.getList();
+            }
+        }
     });
     $stateProvider.state('user', {
         url: '/user',

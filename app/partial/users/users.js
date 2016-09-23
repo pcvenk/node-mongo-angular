@@ -1,4 +1,8 @@
-angular.module('app').controller('UsersCtrl',function($scope, $state){
+angular.module('app').controller('UsersCtrl',function($scope, $state, userService){
+
+    $scope.order = 'name';
+    $scope.pageSize = 5;
+    $scope.list = userService.model.list;
 
     $scope.addUser = function(){
 
@@ -6,4 +10,9 @@ angular.module('app').controller('UsersCtrl',function($scope, $state){
 
     };
 
+    $scope.toggleOrder = function(){
+
+        $scope.orderByField = 'name';
+        $scope.reverseSort = false;
+    };
 });

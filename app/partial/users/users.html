@@ -1,26 +1,67 @@
 <div>
     <h3>User list</h3>
+    <br>
     <span><div class="btn-floating btn-large waves-effect waves-light teal" ng-click="addUser()"><i class="material-icons">add</i></div></span>
+</div>
+<br>
+<div class="row">
+    <div class="input-field col s4">
+        <input id="search-term"
+               type="text"
+               class="validate"
+               ng-model="model.search"
+        >
+        <label class="active" for="search-term">Search Term</label>
+    </div>
 </div>
 
 <br>
 <table class="highlight">
     <thead>
         <tr>
-            <th data-field="name">Name</th>
-            <th data-field="surname">Surname</th>
-            <th data-field="email">Email</th>
-            <th data-field="role">Role</th>
-            <th data-field="date">Date</th>
+            <th data-field="name"
+                ng-click="orderByField='name'; reverseSort = !reverseSort"
+            >
+                Name <span ng-show="orderByField == 'name'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+            </th>
+            <th data-field="surname"
+                ng-click="orderByField='surname'; reverseSort = !reverseSort"
+            >
+                Surname <span ng-show="orderByField == 'surname'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+            </th>
+            <th data-field="email"
+                ng-click="orderByField='email'; reverseSort = !reverseSort"
+            >
+                Email <span ng-show="orderByField == 'email'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+            </th>
+            <th data-field="role"
+                ng-click="orderByField='role'; reverseSort = !reverseSort"
+            >
+                Role <span ng-show="orderByField == 'role'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+            </th>
+            <th data-field="date"
+                ng-click="orderByField='date'; reverseSort = !reverseSort"
+            >
+                Name <span ng-show="orderByField == 'date'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+            </th>
+
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="user in users">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+    <tr dir-paginate="user in list | filter:model.search | orderBy:orderByField:reverseSort | itemsPerPage:5">
+            <td>{{user.name}}</td>
+            <td>{{user.surname}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.role}}</td>
+            <td>{{user.dateCreated | date}}</td>
         </tr>
     </tbody>
 </table>
+
+<div>
+    <dir-pagination-controls
+        max-size="5"
+    >
+    </dir-pagination-controls>
+</div>
+
