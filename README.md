@@ -32,7 +32,7 @@ $ node run
 ###WEBAPP
 
 ```
-localhost:3000/app/users
+localhost:3000/app/#/register
 ```
 
 ####OR
