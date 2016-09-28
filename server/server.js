@@ -5,6 +5,7 @@
 var express    = require('express');
 var app        = express();
 var bodyParser = require('body-parser');
+var session    = require('express-session');
 var router     = require('./router');
 
 //setting up Heroku environment
@@ -17,6 +18,14 @@ module.exports = {
         app.use(bodyParser.urlencoded());
         app.use(bodyParser.json());
 
+        app.use(session({
+            genid: function(req) {
+                return guid(); // use UUIDs for session IDs
+            },
+            //secret: 'lhdfs903wrodp89wfejo90qcisoj'
+            secret: 'Starter app'
+        }));
+
         app.use('/', express.static('public'));
         app.use('/app', express.static('app'));
 
@@ -28,7 +37,7 @@ module.exports = {
 
         app.listen(PORT, function(){
 
-            console.log('Server running on ' + PORT);
+            console.log('Server running on port' + PORT);
 
             router(app);
 
@@ -41,3 +50,13 @@ module.exports = {
     }
 
 };
+
+function guid() {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
+}

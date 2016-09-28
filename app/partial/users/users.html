@@ -1,10 +1,12 @@
-<div>
-    <h3>User list</h3>
-    <br>
-    <span><div class="btn-floating btn-large waves-effect waves-light teal" ng-click="addUser()"><i class="material-icons">add</i></div></span>
+<div class="clearfix">
+    <h3 class="section-title">User list</h3>
+    <div class="sign-out-button waves-effect waves-light btn" ng-click="signOut()">sign out</div>
 </div>
+
+<div class="btn-floating btn-large waves-effect waves-light teal" ng-click="addUser()"><i class="material-icons">add</i></div>
 <br>
-<div class="row">
+
+<br><div class="row">
     <div class="input-field col s4">
         <input id="search-term"
                type="text"
@@ -40,11 +42,10 @@
                 Role <span ng-show="orderByField == 'role'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
             </th>
             <th data-field="date"
-                ng-click="orderByField='date'; reverseSort = !reverseSort"
+                ng-click="orderByField='dateCreated'; reverseSort = !reverseSort"
             >
-                Name <span ng-show="orderByField == 'date'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                Date <span ng-show="orderByField == 'dateCreated'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
             </th>
-
         </tr>
     </thead>
     <tbody>
@@ -53,7 +54,7 @@
             <td>{{user.surname}}</td>
             <td>{{user.email}}</td>
             <td>{{user.role}}</td>
-            <td>{{user.dateCreated | date}}</td>
+            <td>{{user.dateCreated | date:'dd/MM/yy'}}</td>
         </tr>
     </tbody>
 </table>

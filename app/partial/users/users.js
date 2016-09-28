@@ -1,4 +1,4 @@
-angular.module('app').controller('UsersCtrl',function($scope, $state, userService){
+angular.module('app').controller('UsersCtrl',function($scope, $state, userService, authService){
 
     $scope.order = 'name';
     $scope.pageSize = 5;
@@ -14,5 +14,15 @@ angular.module('app').controller('UsersCtrl',function($scope, $state, userServic
 
         $scope.orderByField = 'name';
         $scope.reverseSort = false;
+    };
+
+    $scope.signOut = function(){
+
+        authService.logOut(function(){
+
+            $state.go('login')
+
+        });
+
     };
 });

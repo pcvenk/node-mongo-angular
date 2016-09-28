@@ -15,14 +15,41 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
             list:function(userService){
 
                 return userService.getList();
+            },
+            loginStatus:function($http, authService){
+
+                return authService.loginStatus();
             }
+
         }
     });
+
     $stateProvider.state('user', {
         url: '/user',
         templateUrl: 'partial/user/user.html',
-        controller: 'UserCtrl'
+        controller: 'UserCtrl',
+        resolve:{
+            loginStatus:function($http, authService){
+
+                return authService.loginStatus();
+            }
+
+        }
+
     });
+
+    $stateProvider.state('register', {
+        url: '/register',
+        templateUrl: 'partial/register/register.html',
+        controller: 'RegisterCtrl'
+    });
+
+    $stateProvider.state('login', {
+        url: '/login',
+        templateUrl: 'partial/login/login.html',
+        controller: 'LoginCtrl'
+    });
+
     /* Add New States Above */
     $urlRouterProvider.otherwise('/users');
 

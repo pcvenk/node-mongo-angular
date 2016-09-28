@@ -10,9 +10,10 @@ var init = function(){
 
     db.connect(function(){
 
-        server.start();
+        require('./server/models/user.js');
+        require('./server/models/registered-user');
 
-        require('./server/models/user');
+        server.start();
 
     });
 
